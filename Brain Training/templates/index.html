@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr Jemashima's Brain Training</title>
+</head>
+<body>
+    <h1>Welcome to Dr Jemashima's Brain Training</h1>
+    <p>Your Score: {{ score }}</p>
+    <form method="POST">
+        <p>Question: {{ question }}</p>
+        <input type="hidden" name="correct_answer" value="{{ correct_answer }}">
+        <input type="text" name="answer" placeholder="Your answer" required>
+        <button type="submit">Submit</button>
+    </form>
+    {% if feedback %}
+        <p>{{ feedback }}</p>
+    {% endif %}
+    <form method="POST" action="{{ url_for('end_game') }}">
+        <button type="submit">End Game</button>
+    </form>
+</body>
+</html>
